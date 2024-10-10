@@ -19,7 +19,7 @@ def get_url_book_list(category_url):
     return book_url_list
  
 def get_category_url_list(category_url):
-    list = [category_url]
+    list = [category_url] 
     next = next_page(category_url)
     base = category_url[0:len(category_url)-11]+ "/"
     while True:

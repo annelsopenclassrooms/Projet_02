@@ -13,6 +13,8 @@ def main():
     
     for category, url in category_dict.items():
 
+        print(f"Categorie en cours: {category}")
+
         get_category_url_list(url)
         all_url_from_category = get_category_url_list(url)    
 

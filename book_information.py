@@ -124,8 +124,6 @@ def get_book_infos(book_url):
 
     #reorder infomations
     reordered_informations = {}
-    print(informations.keys())
-
     reordered_informations["product_page_url"] = informations["product_page_url"]
     reordered_informations["UPC"] = informations["UPC"]
     reordered_informations["title"] = informations["title"]
@@ -136,9 +134,7 @@ def get_book_infos(book_url):
     reordered_informations["category"] = informations["category"]
     reordered_informations["review_rating"] = informations["review_rating"]
     reordered_informations["image_url"] = informations["image_url"]
-
-
-    print(reordered_informations.keys())
+    
     return reordered_informations
 
 #Mettre les données dans un csv
