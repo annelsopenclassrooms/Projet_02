@@ -2,7 +2,6 @@ from book_information import get_book_infos, fill_csv
 import requests
 from bs4 import BeautifulSoup
 
-
 def get_url_book_list(category_url):
 
     url = category_url
