@@ -52,7 +52,7 @@ Fonctions principales:
 ### Prérequis
 
 * Python 3.x
-* Modules Python nécessaires : requests, beautifulsoup4, csv
+* Modules Python nécessaires : requests, beautifulsoup4
 
 Vous pouvez installer les modules nécessaires en utilisant la commande suivante en bash:
 ```
@@ -68,7 +68,7 @@ python scrape.py
 
 ### Résultats :
 
-Le script va crée deux repertoires
+Le script va créer deux repertoires
 
 * Extracts: Chaque catégorie a son propre fichier CSV contenant les détails de tous les livres de cette catégorie.
 * Images: Les images des couvertures des livres sont téléchargées et enregistrées dans ce dossier.
