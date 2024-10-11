@@ -1,12 +1,12 @@
 # Projet de scraping de livres
 
-Ce projet est conçu pour extraire l'ensemble des informations des livres du site "Books to Scrape" et enregistrer ces données dans des fichiers CSV, chauqe fichier correspont à une catégorie.
-Il recupere egalement les images correspondant aux couvertures de chaque livre.
+Ce projet est conçu pour extraire l'ensemble des informations des livres du site "Books to Scrape" et enregistrer ces données dans des fichiers CSV, chaque fichier correspond à une catégorie.
+Il récupère également les images correspondant aux couvertures de chaque livre.
 Le projet est composé de trois scripts.
 
 ## Scripts: 
 
-### Book_informations
+### Book_informations.py
 
 Ce script gère l'extraction des données spécifiques d'un livre à partir de la page d'un livre individuel. Il récupère et organise les informations suivantes :
 
@@ -23,9 +23,29 @@ Ce script gère l'extraction des données spécifiques d'un livre à partir de l
 
 Le script comprend également une fonction pour télécharger l'image de la couverture du livre localement et une fonction pour enregistrer les données extraites dans un fichier CSV.
 
-### Category
+### Category.py
 
-### Scrape
+Ce script s'occupe de la gestion des catégories et de la pagination.
+
+Fonctions principales:
+
+    get_url_book_list(category_url) : Récupère toutes les URLs de livres d'une page de catégorie.
+    get_category_url_list(category_url) : Gère la pagination et récupère les URLs de toutes les pages d'une catégorie.
+    next_page(url) : Vérifie la présence d'une page suivante dans une catégorie et renvoie l'URL si elle existe.
+
+### Scrape.py
+
+Ce script coordonne l'ensemble du processus de scraping.
+
+* Il récupère toutes les catégories disponibles depuis la page d'accueil.
+* Pour chaque catégorie, il récupère toutes les URLs de livres sur plusieurs pages (si nécessaire).
+* Il extrait les informations de chaque livre à l'aide des fonctions du script book_information.py.
+* Il enregistre les données dans des fichiers csv distincts correspondant à une catégorie.
+
+Fonctions principales:
+
+    get_categories(home_url) : Récupère les noms et les URLs des catégories depuis la page d'accueil.
+    main() : Fonction principale qui orchestre le scraping de toutes les catégories et enregistre les données dans des fichiers CSV.
 
 ## Installation et utilisation
 
@@ -63,3 +83,8 @@ Le script va crée deux repertoires
 └── images/              # Dossier où les images des couvertures de livres seront enregistrées  
 
 ## Axe d'amelioration
+
+* Gestion des erreurs
+* Meilleurs séparation des différentes étapes d'ETL
+* Parallélisation (en attendant les réponses du site)
+
