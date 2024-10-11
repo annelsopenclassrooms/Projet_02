@@ -3,45 +3,11 @@ from bs4 import BeautifulSoup
 import csv
 import os
 
-
-""" 
-ok ● product_page_url
-ok ● universal_ product_code (upc)
-ok ● title
-ok● price_including_tax
-ok● price_excluding_tax
-ok● number_available
-ok● product_description
-ok● category
-ok● review_rating
-ok● image_url 
-
-individuel
-● product_page_url
-● product_description
-● category
-● review_rating
-● image_url 
-
-tableau
-● title
-● universal_ product_code (upc)
-● price_including_tax
-● price_excluding_tax
-● number_available
-
-
-"""
-
 def main():
 
     all_info_in_category=[]
-    #print(get_book_infos("http://books.toscrape.com/catalogue/life-the-universe-and-everything-hitchhikers-guide-to-the-galaxy-3_189/index.html"))
     get_book_infos("http://books.toscrape.com/catalogue/life-the-universe-and-everything-hitchhikers-guide-to-the-galaxy-3_189/index.html")
-
     all_info_in_category.append(get_book_infos("http://books.toscrape.com/catalogue/life-the-universe-and-everything-hitchhikers-guide-to-the-galaxy-3_189/index.html"))
-
-
     fill_csv(all_info_in_category, "SF")
 
 def get_book_infos(book_url):
@@ -49,7 +15,6 @@ def get_book_infos(book_url):
     page = requests.get(url)
     soup = BeautifulSoup(page.content, 'html.parser')
     informations = {}
-
     title = soup.find(class_="active").string
     informations["title"] = title
     product_information_html = soup.find(class_= "table table-striped").find_all("tr")
@@ -93,8 +58,7 @@ def get_book_infos(book_url):
         
     informations["category"] = category
 
-    #get rating
-
+    #Get ratings
     star = str(soup.find(class_= "star-rating"))
     line = star.split('\n', 1)[0]
     slice = line[22:len(line)-2]
@@ -122,7 +86,7 @@ def get_book_infos(book_url):
     image_url = img_url
     download_image(image_url, "images")
 
-    #reorder infomations
+    #reorder informations
     reordered_informations = {}
     reordered_informations["product_page_url"] = informations["product_page_url"]
     reordered_informations["UPC"] = informations["UPC"]

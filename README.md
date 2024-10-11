@@ -8,7 +8,7 @@ Le projet est composé de trois scripts.
 
 ### Book_informations.py
 
-Ce script gère l'extraction des données spécifiques d'un livre à partir de la page d'un livre individuel. Il récupère et organise les informations suivantes :
+Ce script gère l'extraction des données spécifiques d'un livre à partir de la page d'un livre individuel. Grace à la fonction "get_book_infos", il récupère et organise les informations suivantes :
 
 * product_page_url: L'URL de la page du livre.
 * UPC : Code universel de produit.
@@ -21,7 +21,7 @@ Ce script gère l'extraction des données spécifiques d'un livre à partir de l
 * review_rating : La note du livre (de 0 à 5 étoiles).
 * image_url : L'URL de la couverture du livre.
 
-Le script comprend également une fonction pour télécharger l'image de la couverture du livre localement et une fonction pour enregistrer les données extraites dans un fichier CSV.
+Le script comprend également une fonction "download_image" pour télécharger l'image de la couverture du livre localement et une fonction "fill_csv" pour enregistrer les données extraites dans un fichier CSV.
 
 ### Category.py
 
@@ -29,9 +29,9 @@ Ce script s'occupe de la gestion des catégories et de la pagination.
 
 Fonctions principales:
 
-    get_url_book_list(category_url) : Récupère toutes les URLs de livres d'une page de catégorie.
-    get_category_url_list(category_url) : Gère la pagination et récupère les URLs de toutes les pages d'une catégorie.
-    next_page(url) : Vérifie la présence d'une page suivante dans une catégorie et renvoie l'URL si elle existe.
+* get_url_book_list(category_url) : Récupère toutes les URLs de livres d'une page de catégorie.
+* get_category_url_list(category_url) : Gère la pagination et récupère les URLs de toutes les pages d'une catégorie.
+* next_page(url) : Vérifie la présence d'une page suivante dans une catégorie et renvoie l'URL si elle existe.
 
 ### Scrape.py
 
@@ -44,8 +44,8 @@ Ce script coordonne l'ensemble du processus de scraping.
 
 Fonctions principales:
 
-    get_categories(home_url) : Récupère les noms et les URLs des catégories depuis la page d'accueil.
-    main() : Fonction principale qui orchestre le scraping de toutes les catégories et enregistre les données dans des fichiers CSV.
+* get_categories(home_url) : Récupère les noms et les URLs des catégories depuis la page d'accueil.
+* main() : Fonction principale qui orchestre le scraping de toutes les catégories et enregistre les données dans des fichiers CSV.
 
 ## Installation et utilisation
 
